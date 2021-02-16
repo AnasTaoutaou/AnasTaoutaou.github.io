@@ -22,3 +22,15 @@ BLOG IS UNDER CONSTRUCTION
 <h4>H4 - heading</h4>
 ---
 <br>
+
+{% highlight c %}
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+char buf[32];
+int main(int argc, char* argv[], char* envp[]){
+        if(argc<2){
+                printf("pass argv[1] a number\n");
+                return 0;
+        }
+{% endhighlight %}
