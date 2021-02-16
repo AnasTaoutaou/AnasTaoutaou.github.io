@@ -12,9 +12,8 @@ title: Anas' Infosec Blog                          # the main title
 tagline: Infosec | CTFs | Reverse Engineering  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, portfolio, sidebar,
-  bootstrap Jekyll theme with responsive web design
-  and focuses on text presentation.
+  A infosec blog where I document my findings,
+  and the knowlegde I aquire throughout my Journey.
 # fill in the base hostname & protocol for your site, e.g., 'https://username.github.io'
 url: 'https://anastaoutaou.github.io'
 
