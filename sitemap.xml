@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://anastaoutaou.github.io/posts/Pwnablekr1/</loc>
+<lastmod>2021-02-18T01:31:29-06:00</lastmod>
+</url>
+<url>
+<loc>https://anastaoutaou.github.io/tabs/categories/</loc>
+<lastmod>2021-02-18T01:32:05-06:00</lastmod>
+</url>
+<url>
+<loc>https://anastaoutaou.github.io/tabs/tags/</loc>
+<lastmod>2021-02-18T01:32:05-06:00</lastmod>
+</url>
+<url>
+<loc>https://anastaoutaou.github.io/tabs/archives/</loc>
+<lastmod>2021-02-18T01:32:05-06:00</lastmod>
+</url>
+<url>
+<loc>https://anastaoutaou.github.io/tabs/about/</loc>
+<lastmod>2021-02-18T01:32:05-06:00</lastmod>
+</url>
+<url>
+<loc>https://anastaoutaou.github.io/</loc>
+</url>
+<url>
+<loc>https://anastaoutaou.github.io/tags/binexp/</loc>
+</url>
+<url>
+<loc>https://anastaoutaou.github.io/categories/writeups/</loc>
+</url>
+<url>
+<loc>https://anastaoutaou.github.io/categories/pwnable-kr/</loc>
+</url>
+</urlset>
