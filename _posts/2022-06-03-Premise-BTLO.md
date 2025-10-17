@@ -11,28 +11,28 @@ The format here is that you are given tools and evidence and you are to answer q
 
 We start by firing up Wireshark and loading up the LAB.pcap file.
 
-![Screenshot](/images/Screenshot_2022-06-04_06-35-58.png)
-![Screenshot](/images/Screenshot_2022-06-04_06-36-50.png)
+![Screenshot](/assets/Screenshot_2022-06-04_06-35-58.png)
+![Screenshot](/assets/Screenshot_2022-06-04_06-36-50.png)
 
 We see that we have a total of 9553 packets, so your job as a Security/SOC analyst is to comb through all of that and filter out all the garbage.
 
 Let's start by reading some stats:
 
-![Screenshot](/images/Screenshot_2022-06-04_06-39-44.png)
-![Screenshot](/images/Screenshot_2022-06-04_06-39-59.png)
+![Screenshot](/assets/Screenshot_2022-06-04_06-39-44.png)
+![Screenshot](/assets/Screenshot_2022-06-04_06-39-59.png)
 
 We see that `192.168.1.8` and `192.168.1.9` have the most traffic so I'll look into them. I can use the following filter to only see traffic from both ips. : `ip.addr == 192.168.1.8 || ip.addr == 192.168.1.9`.
 
 The results are still not satisfactory so I'll only leave communications between the two, now there could be a better way to do this 
 but this query worked fine for me: `(ip.src == 192.168.1.9 && ip.dst == 192.168.1.8) || (ip.src == 192.168.1.8 && ip.dst == 192.168.1.9)`. We start to get some good stuff right after.
 
-![Screenshot](/images/Screenshot_2022-06-04_06-49-51.png)
+![Screenshot](/assets/Screenshot_2022-06-04_06-49-51.png)
 
 # Question1: What is the full filename of the initial payload file?
 The file in question might be the first thing that popped out: "INVOICE_2021937.pdf.bat". Mainly because invoices aren't supposed to be `.bat` files :/ but let's take a closer look.
 
-![Screenshot](/images/Screenshot_2022-06-04_06-51-52.png)
-![Screenshot](/images/Screenshot_2022-06-04_06-52-00.png)
+![Screenshot](/assets/Screenshot_2022-06-04_06-51-52.png)
+![Screenshot](/assets/Screenshot_2022-06-04_06-52-00.png)
 
 That is absolutly malicious so let's move on to the next question.
 
@@ -42,7 +42,7 @@ Answer: INVOICE_2021937.pdf.bat
 
 If you do pentesting a lot, you use this module too. But looking at the headers of the response of which the malware was served we see the module in the `Server:` header: SimpleHTTPServer. Next question.
 
-![Screenshot](/images/header.png)
+![Screenshot](/assets/header.png)
 
 Answer: SimpleHTTPServer
 
@@ -69,7 +69,7 @@ Answer: http://192.168.1.9:443/INVOICE_2021937.pdf.bat
 
 We can see it clearly here (although usually we investigate the base64 code): 
 
-![Screenshot](/images/ps.png)
+![Screenshot](/assets/ps.png)
 
 Answer: powershell -noP -sta -w 1 -enc
 
@@ -77,7 +77,7 @@ Answer: powershell -noP -sta -w 1 -enc
 
 Looking again at the previous image, we look at the User Agent header and we see that the attacker is fond of open source and is using Mozilla/5.0. Next.
 
-![Screenshot](/images/header.png)
+![Screenshot](/assets/header.png)
 
 Answer: Mozilla/5.0
 
@@ -91,7 +91,7 @@ Answer: beaconing
 
 Since we're dealing with URIs, we can try to add another filter to focus on HTTP traffic, simply append `&& http` to your query.
 
-![Screenshot](/images/Screenshot_2022-06-04_07-10-10.png)
+![Screenshot](/assets/Screenshot_2022-06-04_07-10-10.png)
 
 We see that it is: `/login/process.php`
 
@@ -101,7 +101,7 @@ Answer: /login/process.php
 
 We can google something like "c2 /login/process.php" and we get Empire.
 
-![Screenshot](/images/Screenshot_2022-06-04_07-11-45.png)
+![Screenshot](/assets/Screenshot_2022-06-04_07-11-45.png)
 
 Answer: Empire
 
@@ -115,9 +115,9 @@ Upon looking into data.txt we find an long string of new-lined hex numbers. We c
 
 P.S. I had to remove duplicated chars to make it work.
 
-![Screenshot](/images/Screenshot_2022-06-04_07-25-30.png)
-![Screenshot](/images/Screenshot_2022-06-04_07-25-55.png)
-![Screenshot](/images/Screenshot_2022-06-04_07-43-24.png)
+![Screenshot](/assets/Screenshot_2022-06-04_07-25-30.png)
+![Screenshot](/assets/Screenshot_2022-06-04_07-25-55.png)
+![Screenshot](/assets/Screenshot_2022-06-04_07-43-24.png)
 
 "P.a.s.s.w.o.r.d. .f.o.r. .m.y. .$.s.e.c.-.a.c.c.o.u.n.t.:. .Y.0.u.t.h.i.n.k.y.0.u.c.A.n.c.4.t.c.h.m."
 We get answers for the last 2 questions.
